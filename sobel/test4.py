@@ -1,4 +1,4 @@
-"""
+""" 4
 Câu 1: Phân vùng ảnh đa ngưỡng. Yêu cầu Cho một ảnh xám chứa
 nhiều lớp vùng sáng tối khac nhau. Hãy viết chương trình python thực hiện phân vùng
 đa mức theo phương pháp ngưỡng cứng
@@ -13,6 +13,12 @@ vùng tối gán bằng 0
 vùng trung bình gán là 128
 vùng sáng là 255
 5. hiển thị ảnh gốc và sau khi phân vùng
+
+
+1. (toán tử Laplace) điểm chú ý nhất: các điểm giao ko của đạo hàm bậc 2 
+2. toán tử prewitt và sobel: cùng hướng gradient nhưng sobel có trọng số lớn hơn ở tâm
+7. 1 ảnh 8 bit có histogram ở 0-70, -> độ tương pphản ở vùng tối tăng và vùng sáng giảm
+8. biến đổ power-law : gamma <1 : tăng độ sáng gamma >1 : giảm độ sáng -> ảnh sáng hơn ảnh gốc
 """
 
 import numpy as np
@@ -30,6 +36,8 @@ img_np = np.array(img)
 # 2. Tính histogram
 # ===========================
 hist, bins = np.histogram(img_np.flatten(), bins=256, range=[0, 256])
+#in ra histogram
+print(hist)
 
 # ===========================
 # 3. Chọn ngưỡng T1, T2
@@ -46,6 +54,7 @@ segmented[(img_np < T1)] = 0          # vùng tối
 segmented[(img_np >= T1) & (img_np < T2)] = 128   # vùng trung bình
 segmented[(img_np >= T2)] = 255       # vùng sáng
 
+# in
 # ===========================
 # 5. Hiển thị ảnh gốc & ảnh phân vùng
 # ===========================
