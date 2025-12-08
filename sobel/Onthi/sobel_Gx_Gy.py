@@ -30,9 +30,9 @@ def convolution_sobel(image, kx, ky):
 
 # --- Dữ liệu đầu vào ---
 image = np.array([
-    [2, 2, 5],
-    [1, 1, 10],
-    [0, 0, 8]
+    [1, 1, 5],
+    [10, 10, 5],
+    [5, 5, 10]
 ])
 
 # Kernel gốc (chưa lật)

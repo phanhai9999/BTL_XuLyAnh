@@ -44,7 +44,7 @@ def histogram_equalization(image, L):
 
 image = np.array([
     [1, 2, 7],
-    [0, 2, 5],
+    [0, 0, 5],
     [1, 1, 6]
 ])
 
